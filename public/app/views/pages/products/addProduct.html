@@ -1,0 +1,63 @@
+<div class="container" >
+    <div class="page-header" style="font-size: 25px;font-weight: bold">Add Product</div>
+    <form ng-submit="addProduct.addProducttodb(pdata)">
+		<div class="form-group row">
+			<label  class="col-sm-2 col-form-label">Product Title</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" name="pname"  placeholder="Product Name" ng-model="pdata.ptitle">
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Product Id</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" name="pid" placeholder="Product Id" ng-model="pdata.pid">
+			</div>
+        </div>
+        <div class="form-group row">
+			<label class="col-sm-2 col-form-label">Product Category</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" name="pcategory" placeholder="Product Category" ng-model="pdata.pcategory">
+			</div>
+        </div>
+        <div class="form-group row">
+			<label class="col-sm-2 col-form-label">Product Brand</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" name="pbrand" placeholder="Product Brand" ng-model="pdata.pbrand">
+			</div>
+        </div>
+        <div class="form-group row">
+			<label class="col-sm-2 col-form-label">Product Images(small)</label>
+			<div class="col-sm-10">
+                <input type="text" class="form-control" name="psimage1" placeholder="Product Image(small)" ng-model="pdata.psimage1">
+                <input type="text" class="form-control" name="psimage2" placeholder="Product Image(small)" ng-model="pdata.psimage2">
+                <input type="text" class="form-control" name="psimage3" placeholder="Product Image(small)" ng-model="pdata.psimage3">
+                <input type="text" class="form-control" name="psimage4" placeholder="Product Image(small)" ng-model="pdata.psimage4">
+                <input type="text" class="form-control" name="psimage5" placeholder="Product Image(small)" ng-model="pdata.psimage5">
+            </div>
+        </div>
+        <div class="form-group row">
+			<label class="col-sm-2 col-form-label">Product Images(large)</label>
+			<div class="col-sm-10">
+                <input type="text" class="form-control" name="plimage1" placeholder="Product Image(large)" ng-model="pdata.plimage1">
+                <input type="text" class="form-control" name="plimage2" placeholder="Product Image(large)" ng-model="pdata.plimage2">
+                <input type="text" class="form-control" name="plimage3" placeholder="Product Image(large)" ng-model="pdata.plimage3">
+                <input type="text" class="form-control" name="plimage4" placeholder="Product Image(large)" ng-model="pdata.plimage4">
+                <input type="text" class="form-control" name="plimage5" placeholder="Product Image(large)" ng-model="pdata.plimage5">
+            </div>
+        </div>
+        
+		
+		<button class="btn btn-primary" type="submit">Add Product</button>
+	</form>
+	<br>
+	<div class="jumbotron text-center col-sm-8" ng-show="addProduct.loading">
+		<span class="glyphicon glyphicon-repeat spinner"></span>
+		<p>Adding Product</p>
+	</div>
+	<div class="row show-hide-message col-sm-8 wow fadeIn" wow-data-duration='3s' ng-show="addProduct.successmessage">
+		<div class="alert alert-success">{{ addProduct.successmessage }}</div>
+	</div>
+	<div class="row show-hide-message col-sm-8 col-sm-8 wow fadeIn" wow-data-duration='3s' ng-show="addProduct.errormessage">
+		<div class="alert alert-danger">{{addProduct.errormessage}}</div>
+	</div>
+</div>

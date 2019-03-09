@@ -1,0 +1,50 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+.hello{
+	border-radius: 0px;
+	padding: 10px;
+	background-color: rgb(51,51,51);
+}
+.topbaricon{
+	 width: 100px; 
+	 font-size: 22px;
+	 color: white;
+}
+.hello .navbar-nav>li>a{
+	color: white;
+
+}
+.hello .navbar-nav>li>a:hover{
+	color: white;
+	font-size: 20px;
+	background-color:rgb(51,51,51);
+}
+.hello .navbar-nav>li.wishlist>a:hover{
+	color:white;
+	font-size: 40px;
+	background-color:rgb(37, 35, 35);
+}
+.hello .navbar-nav>li{
+	margin-left: 2px;
+
+}
+.hello .navbar-brand{
+	font-size: 30px;
+	font-family: Tempus Sans ITC;
+	color: white;
+}
+.hello .navbar-nav .active>a{
+	color: white;
+
+
+}
+.pointer{
+	cursor: pointer;
+}
+.dropdown:hover> .dropdown-menu{
+	display: block;
+}
+
+

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<base href="/">
+	<title>Never-Not-Yet</title>
+	<meta name="viewport" content="width=device-width initial-scale=1">
+	<!--custom style sheets-->
+	<link rel="stylesheet" type="text/css" href="app/assets/css/bgstyle.css">	
+	<link rel="stylesheet" type="text/css" href="app/assets/css/animate.css">
+	<link rel="stylesheet" type="text/css" href="app/assets/css/mobilenav.css">
+	<link rel="stylesheet" type="text/css" href="app/assets/css/desktopnav.css">
+
+	<!--cdn Style Sheets -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+
+	<!--Bootstrap and jquery JS files-->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="app/assets/js/wow.min.js"></script>
+
+	<!--angular JS files -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
+
+
+	<!--angular public JS files -->
+	<script type="text/javascript" src="app/app.js"></script>
+	<script type="text/javascript" src="app/route.js"></script>
+
+	<!--angular Controller Js files -->
+	<script type="text/javascript" src="app/controllers/userCtrl.js"></script>
+	<script type="text/javascript" src="app/controllers/mainCtrl.js"></script>
+	<script type="text/javascript" src="app/controllers/emailCtrl.js"></script>
+	<script type="text/javascript" src="app/controllers/addProductCtrl.js"></script>
+
+	<!-- angular servies JS files-->
+	<script type="text/javascript" src="app/services/userServices.js"></script>
+	<script type="text/javascript" src="app/services/authServices.js"></script>
+	<script type="text/javascript" src="app/services/addProductServices.js"></script>
+
+	<script>
+    new WOW().init();
+	</script>
+	
+	<script>
+		/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+		function openSideNav() {
+				document.getElementById("mySidenav").style.width = "350px";
+				document.getElementById("main").style.marginRight = "350px";
+				document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+		}
+
+		/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+		function closeSideNav() {
+				document.getElementById("mySidenav").style.width = "0";
+				document.getElementById("main").style.marginRight = "0";
+				document.body.style.backgroundColor = "white";
+		}
+	</script>
+
+</head>
+<body ng-app="userApp" ng-controller="mainCtrl as main" >
+	<div class="navbar hello navbar-nav navbar-inverse navbar-fixed-top justify-content-between " style="margin-top: 0px;"   >
+		<div class=" container-fluid" >
+			<div>
+					<div class="hidden-xs" >
+							<div class="row">
+									<div class="categories-custom col-sm-5">
+										<ul class="navbar-nav nav">
+											<li><a href="/mensfashion">Men's</a></li>
+											<li><a href="/womensfashion">Women's</a></li>
+											<li><a href="/laptopsandcomputers">Laptops</a></li>
+											<li><a href="/sportsandfitness">Sports & fitness</a></li>
+											<li><a href="/books">Books</a></li>
+										</ul>
+									</div>
+								<div  class="col-sm-4">
+									<div id="search" class="input-group">
+										<input type="text" name="search" value="" placeholder="Search" class="form-control input-lg" />
+										<span class="input-group-btn">
+											<button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
+										</span>
+									</div> 
+								</div>
+								<div class="col-sm-3">
+									<ul class="nav navbar-nav">
+										<li class="wishlist" ng-show="main.wishlistButton" style="font-size : 30px;" ><a href="/wishlist">&#x2665;</a></li>
+										<li><div id="logo"><a href="/home"><img src="/app/assets/images/logosm.jpg" alt="nny logo" class="img-responsive" /></a></div></li>
+										<li class="dropdown pointer" ng-click='main.loginModal()' ng-show="main.loginButton"><a  class="dropdown-toggle" data-toggle="dropdown" ><i class="fa fa-user"></i></a>
+										</li>
+										<li  ng-show="main.logoutButton"><a onclick="closeNav()"href='/profile' >{{main.username}}</a>
+										</li>		
+									</ul>
+								</div>																					
+							</div>
+						</div>
+			</div>
+
+
+			<!--Mobile Devices-->
+			
+			<div class="hidden-md hidden-lg hidden-xl hidden-sm">
+					<div class="col-sm-3 hidden-md hidden-lg hidden-xl hidden-sm">
+							<div class="container">
+								<div class="row">
+									<div class="nav navbar-nav col-xs-3">
+											<li><a style="font-size: 25px;" href="/home"><i class="fa fa-home"></i></a></li>				
+									</div>
+									<div class="nav navbar-nav col-xs-3">
+											<li ng-show="main.wishlistButton" style="font-size : 25px;" ><a href="/wishlist">&#x2665;</a></li>
+									</div>
+									<div style="float:right;margin-top: 7px;" class="col-sm-3 col-xs-4">
+											<div id="logo">
+												<a href="/home"><img src="/app/assets/images/logosm.jpg"  alt="nny logo" class="img-responsive" /></a>
+											</div>
+									</div>				
+							</div>
+							</div>
+							<div class="row">
+								<div  class="col-sm-5 col-xs-10">
+									<div id="search" class="input-group">
+										<input type="text"  name="search"  placeholder="Search" class="form-control input-md" />
+										<span class="input-group-btn">
+											<button type="button" class="btn btn-default btn-md"><i class="fa fa-search"></i></button>
+										</span>
+									</div> 
+								</div>
+								<button type="button" onclick='openNav()' class="btn btn-navbar navbar-toggle" ><i style="color:rgb(97, 86, 86);" class="fa fa-bars"></i></button>
+										
+								<!--Script tag for full bar -->
+								<script>
+									/* Open when someone clicks on the span element */
+									function openNav() {
+										document.getElementById("myNav").style.width = "100%";
+									}
+
+									/* Close when someone clicks on the "x" symbol inside the overlay */
+									function closeNav() {
+										document.getElementById("myNav").style.width = "0%";
+									}
+								</script>
+							</div>
+							<div id="myNav" class="overlay">
+									<div class="overlay-header">
+										<!-- Button to close the overlay navigation -->
+										<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+										<div class="account">
+											<li id="username"  class="dropdown pointer" ng-click='main.loginModal()' ng-show="main.loginButton"><a  class="dropdown-toggle" data-toggle="dropdown" ><i class="fa fa-user"><u> login?</u></i></a>
+											</li>
+											<li id="username"  ng-show="main.logoutButton"><a onclick="closeNav()"href='/profile' ><i class="fa fa-user"></i>{{main.username}}</a>
+											</li>
+										</div>
+									</div >
+									<hr>
+									
+									<div class="overlay-body">
+										<div class="categories-heading">
+											<a style="font-size: 25px;padding-top:5px;color: black">Categories</a>
+										</div><br><br>
+										<div class="categories-names">
+											<div class="container">
+												<div class="row">
+													<div class="names-block col-xs-12">
+															<i style="margin-top:13px;" class="fa fa-plus"></i><a onclick="closeNav()" href="/mensfashion" style="float: right;font-size: 20px;	">Men's Fashion</a>
+													</div>
+													<div  class="names-block col-xs-12">
+															<i style="margin-top:13px;" class="fa fa-plus"></i><a onclick="closeNav()" href="/womensfashion" style="float: right;font-size: 20px;	">Women's Fashion</a>
+													</div>
+													<div  class="names-block col-xs-12">
+															<i style="margin-top:13px;" class="fa fa-plus"></i><a onclick="closeNav()" href="/laptopsandcomputers" style="float: right;font-size: 20px;	">Laptops&Computers</a>
+													</div>
+													<div  class="names-block col-xs-12">
+															<i style="margin-top:13px;" class="fa fa-plus"></i><a onclick="closeNav()" href="/sportsandfitness" style="float: right;font-size: 20px;	">Sports&Fitness</a>
+													</div>
+													<div  class="names-block col-xs-12">
+															<i style="margin-top:13px;" class="fa fa-plus"></i><a onclick="closeNav()" href="/books" style="float: right;font-size: 20px;	">Books</a>
+													</div>
+												</div>
+											</div>											
+										</div>
+									</div>
+									<hr>
+									<div class="overlay-footer">
+										<a style="color:black;font-size: 25px;">More about NNY:</a>
+									</div>
+						
+							</div>
+					</div>
+				</div>	
+		</div>		
+	</div>
+</nav>
+
+
+	<div style="margin-top: 150px;" ng-view></div>
+
+
+	<div class="modal fade" id="myModal" role="dialog">
+	    <div class="modal-dialog">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title"><strong>{{main.modalHeader}}</strong></h4>
+	        </div>
+	        <div class="modal-body">
+	          <p>{{main.modalBody}}</p>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+	        </div>
+	      </div>
+	      
+	    </div>
+	</div>
+
+	<div class="container">
+	    <div class="modal fade" id="loginModal" role="dialog">
+	      <div class="modal-dialog">
+	        <div class="modal-content">
+	          <div class=" modal-header" style="padding:35px 50px;background-color:black;color:white">
+	            <button type="button" class="close" style="color:red;" data-dismiss="modal">&times;</button>
+          		<h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+	          </div>
+	          <div class="modal-body" style="padding:40px 50px;">
+	            <form role="form" ng-submit='main.login(loginData)'>
+                    <div class="form-group">
+                      <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+                      <input type="text" class="form-control" ng-model="loginData.email" id="usrname" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                      <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                      <input type="password" class="form-control" id="psw" ng-model="loginData.password" placeholder="Enter password">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block" style="background-color: black;"><span class="glyphicon glyphicon-off"></span> Login</button>
+                  </form><br>
+                <div class="row show-hide-message  wow fadeIn" wow-data-duration='3s' ng-show="main.successmessage">
+					<div class="alert alert-success">{{ main.successmessage }}</div>
+				</div>
+				<div class="row show-hide-message  wow fadeIn" wow-data-duration='3s' ng-show="main.errormessage">
+					<div class="alert alert-danger">{{main.errormessage}}</div>
+				</div><br>
+              </div>
+	          <div class="modal-footer">
+	            <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+         	 	<p>Not a member?<strong> <a style="color:black;" onclick="closeNav()" ng-click="main.hideModalWhenNotLogin()" href="http://localhost:8080/register">Sign Up</a></strong></p>
+          		<p><a style="color: black;" onclick="closeNav()" ng-click="main.hideModalWhenNotLogin()" href="http://localhost:8080/forgotpassword">Forgot Password?</a></p>
+	          </div>        
+	      </div>
+	    </div> 
+	  </div>
+	 </div>
+</body>
+</html>
